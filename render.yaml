@@ -2,13 +2,9 @@ services:
   - type: web
     name: investment-agent
     runtime: node
-    region: oregon
+    region: ohio
     plan: free
-    buildCommand: >
-      npm install -g pnpm &&
-      pnpm install --frozen-lockfile=false &&
-      pnpm --filter @workspace/investment-agent run build &&
-      pnpm --filter @workspace/api-server run build
+    buildCommand: npm install -g pnpm@9 && pnpm install --no-frozen-lockfile && pnpm --filter @workspace/investment-agent run build && pnpm --filter @workspace/api-server run build
     startCommand: node --enable-source-maps artifacts/api-server/dist/index.mjs
     healthCheckPath: /api/health
     envVars:
@@ -29,4 +25,4 @@ databases:
   - name: investment-agent-db
     databaseName: investment_agent
     plan: free
-    region: oregon
+    region: ohio
