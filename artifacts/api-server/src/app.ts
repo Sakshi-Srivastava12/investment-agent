@@ -43,8 +43,8 @@ app.use("/api", router);
 // Serve the built Vite frontend
 app.use(express.static(staticDir));
 
-// SPA fallback — all non-API routes return index.html
-app.get("*", (_req, res) => {
+// SPA fallback — all non-API GET routes return index.html (Express 5 compatible)
+app.get(/(.*)/, (_req, res) => {
   res.sendFile(path.join(staticDir, "index.html"));
 });
 
