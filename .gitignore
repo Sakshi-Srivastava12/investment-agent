@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+artifacts/api-server/dist/
+artifacts/investment-agent/dist/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Replit
+.replit
+replit.nix
+.replit-artifact/
+
+# Temp
+*.tmp
+.cache/
