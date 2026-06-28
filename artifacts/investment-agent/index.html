@@ -18,6 +18,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
+    <script>
+      window.addEventListener("error", function(e) {
+        document.body.innerHTML += '<div style="position:fixed;top:0;left:0;z-index:9999;background:red;color:white;padding:20px;font-family:monospace;width:100%;"><b>Uncaught Error:</b> ' + e.message + '<br/><pre>' + (e.error ? e.error.stack : '') + '</pre></div>';
+      });
+      window.addEventListener("unhandledrejection", function(e) {
+        document.body.innerHTML += '<div style="position:fixed;top:0;left:0;z-index:9999;background:red;color:white;padding:20px;font-family:monospace;width:100%;"><b>Unhandled Promise Rejection:</b> ' + (e.reason && e.reason.message ? e.reason.message : e.reason) + '<br/><pre>' + (e.reason ? e.reason.stack : '') + '</pre></div>';
+      });
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
